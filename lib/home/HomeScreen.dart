@@ -33,7 +33,8 @@ class HomeScreen extends StatelessWidget{
               },
               child: Icon(Icons.add),
             ),
-            appBar: AppBar(title: Text('Room Chat'),
+            appBar: AppBar(title:
+                Text('Room Chat'),
               backgroundColor: Colors.transparent,
               elevation: 0,
               centerTitle: true,

@@ -1,3 +1,4 @@
+import 'package:chat_app/modal/Message.dart';
 import 'package:chat_app/modal/Room.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../modal/User.dart';
@@ -14,4 +15,12 @@ CollectionReference<Room> getRoomCollectionWithConverter(){
        .withConverter<Room>(
        fromFirestore: (snapshot, _) => Room.fromJson(snapshot.data()!),
        toFirestore: (room, _) => room.toJson());
+}
+
+
+CollectionReference<Message> getMessageCollectionWithConverter(roomId){
+   final roomsCollection = getRoomCollectionWithConverter();
+   return roomsCollection.doc(roomId).collection(Message.COOLECTION_NAME).withConverter<Message>(
+       fromFirestore: (snapshot, _) => Message.fromJson(snapshot.data()!),
+       toFirestore: (message, _) => message.toJson());
 }

@@ -22,5 +22,9 @@ class AppProvider extends ChangeNotifier {
      CurrentUser =user;
      notifyListeners();
    }
+
+   void  signoutUser(){
+     FirebaseAuth.instance.signOut();
+   }
 }
 
